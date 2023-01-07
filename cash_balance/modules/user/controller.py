@@ -70,5 +70,5 @@ class UserController:
         user_repository: UserRepository = Depends(UserRepository),
         session: Session = Depends(get_session)
     ):
-        user = user_repository.get_user_by_uuid(user['sub'], session)
+        user = user_repository.get_user_by_uuid(user, session)
         return user
