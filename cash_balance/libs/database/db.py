@@ -7,4 +7,7 @@ db = Database()
 
 def get_session() -> List[Session]:
     with db as session:
-        yield session
+        try:
+            yield session
+        except:
+            session.rollback()
